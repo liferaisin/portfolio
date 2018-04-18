@@ -1,0 +1,74 @@
+html {
+  background: linear-gradient(yellow, orange, #f5788a);
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor:url(https://cdn.glitch.com/c5aacfc3-24b0-42af-9d9b-e722a45e75df%2Fcursor.png?1522719521336),url(myBall.cur),auto;
+}
+
+body {
+  font-family: 'Press Start 2P', cursive;
+  color: #f5788a;
+  margin: auto;
+  z-index: -600;
+}
+
+#name {
+  font-family: 'Bungee Shade', cursive; 
+  color: #4b32ef;
+  text-align: center;
+  font-size: 4vw;
+  margin-top: 10%;
+  z-index: -300;
+}
+
+h1 {
+  font-family: 'Bungee Shade', cursive; 
+  color: #4b32ef;
+  text-align: center;
+  font-size: 4vw;
+  margin-top: 2%;
+  z-index: -200;
+}
+
+a {
+  color: #4b32ef;
+  text-decoration: none;
+  text-align: center;
+  cursor:url(https://cdn.glitch.com/c5aacfc3-24b0-42af-9d9b-e722a45e75df%2Fclick.png?1522720072476),url(myBall.cur),auto;
+  z-index: -100;
+}
+
+a:hover {
+  color: #ff3314; 
+}
+
+.menu {
+  text-align: center;
+  line-height: 2.5vh;
+}
+
+p {
+  text-align: center;
+  margin: 8%;
+  margin-top: 0;
+  line-height: 2.5vh;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  z-index: -150;
+}
+
+#canvas {
+  height: 100%;
+  width: 100%;
+  z-index: -500;
+  position: absolute;
+  top: 0;
+}
+
+#wheel {
+  height: 100%;
+  width: 100%;
+  z-index: -450;
+  position: absolute;
+  top: 0;
+}

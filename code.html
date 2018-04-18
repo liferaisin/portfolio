@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Eva Serrano Reisner</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet"> 
+    <link rel="stylesheet" href="/styles.css">
+    
+  </head>
+  <body>
+    <script type="text/javascript" src="libraries/paper-full.js"></script>
+    <script type="text/paperscript" canvas="canvas">
+        var amount = 45;
+        for (var i = 0; i < amount; i++) {
+            var path = new Path({
+                fillColor: {
+                    hue: 1,
+                    saturation: 1,
+                    brightness: Math.random(10,100)
+                },
+                closed: true
+            });
+        }
+
+        var position = view.center;
+        var mousePos = view.center;
+        var children = project.activeLayer.children;
+
+        function iterate(count) {
+            var delta = mousePos - position;
+            position += delta / 10;
+            for (var i = 1; i < amount; i++) {
+                var path = children[i];
+                var length = Math.abs(Math.sin(i + count / 40) * 150);
+                path.segments = [
+                    position + delta / 1.5,
+                    position + { angle: i / amount * 360, length: length },
+                    position + { angle: (i - 1) / amount * 360, length: length }
+                ];
+                path.fillColor.hue = count - length;
+            }
+        }
+
+        function onFrame(event) {
+            iterate(event.count);
+        }
+
+        function onMouseMove(event) {
+            iterate();
+            mousePos = event.point;
+        }
+        
+    </script>
+    <canvas id="canvas" resize></canvas>
+    <h1>
+      CODING PROJECTS
+    </h1>
+    
+    <p>
+      <a href="https://nootdoot.glitch.me/">Core Interaction | Parsons 2018</a><br><br>
+      <a href="https://github.com/liferaisin">GitHub</a>
+    </p>
+    <div class="menu">
+      <a href="index.html">home</a> <br>
+      <a href="type.html">typography</a> <br>
+      <a href="code.html">coding projects</a> <br>
+      <a href="draw.html">illustrations</a> <br>
+      <a href="contact.html">contact me</a>     
+    </div>
+  </body>
+</html>
