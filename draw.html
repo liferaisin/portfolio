@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ESR illustrations</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet"> 
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <script type="text/javascript" src="libraries/paper-full.js"></script>
+    <script type="text/paperscript" canvas="canvas">
+      var count = 150;
+
+      var path = new Path.Circle({
+      	center: [0, 0],
+	      radius: 10,
+	      fillColor: 'pink',
+	      strokeColor: 'pink'
+      });
+
+      var symbol = new Symbol(path);
+
+      for (var i = 0; i < count; i++) {
+	      var center = Point.random() * view.size;
+	      var placedSymbol = symbol.place(center);
+	      placedSymbol.scale(i / count);
+      }
+
+      function onFrame(event) {
+	      for (var i = 0; i < count; i++) {
+		      var item = project.activeLayer.children[i];
+		      item.position.x += item.bounds.width / 20;
+		      if (item.bounds.left > view.size.width) {
+			      item.position.x = -item.bounds.width;
+		      }
+	      }
+      }
+    </script>
+    <canvas id="canvas" resize></canvas>
+    <h1>ILLUSTRATIONS</h1>
+    <p>
+      
+    </p>
+    <div class="menu">
+      <a href="index.html">home</a> <br>
+      <a href="about.html">about me</a> <br>
+      <a href="type.html">typography</a> <br>
+      <a href="code.html">coding projects</a> <br>
+      <a href="contact.html">contact me</a>     
+    </div>
+  </body>
+</html>
+
+<!-- Jurg Lehni -->
